@@ -1,29 +1,253 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Yaolei Andy Bian portfolio</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<title>Yaolei Andy Bian | Software Engineer Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Software Engineer portfolio showcasing projects, experience, and technical skills in full-stack development, AI, and web technologies." />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-	<head>
-		<title>Yaolei Andy Bian portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-K5S702QYV4"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-K5S702QYV4');
+	</script>
+	
+	<style>
+		/* Enhanced styling for better visual appeal */
+		.experience-item {
+			margin-bottom: 2em;
+			padding-bottom: 1.5em;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		}
+		.experience-item:last-child {
+			border-bottom: none;
+		}
+		.experience-title {
+			font-size: 1.2em;
+			font-weight: bold;
+			color: #6fc3df;
+			margin-bottom: 0.3em;
+		}
+		.experience-company {
+			font-style: italic;
+			color: #8d82c4;
+			margin-bottom: 0.2em;
+		}
+		.experience-date {
+			font-size: 0.9em;
+			color: rgba(255, 255, 255, 0.6);
+		}
+		.skills-grid {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5em;
+			justify-content: center;
+		}
+		.skill-tag {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			padding: 0.5em 1em;
+			border-radius: 20px;
+			font-size: 0.9em;
+			color: white;
+			display: inline-block;
+			margin: 0.25em;
+			transition: transform 0.2s;
+		}
+		.skill-tag:hover {
+			transform: translateY(-2px);
+		}
+		.award-item, .project-item {
+			margin-bottom: 1.5em;
+		}
+		#banner h2 {
+			font-size: 2.5em;
+			margin-bottom: 0.5em;
+		}
+		#banner p {
+			font-size: 1.2em;
+			line-height: 1.6em;
+		}
+		/* Sections expand to display all content naturally without cutting off */
+		.spotlight {
+			height: auto !important;
+			min-height: 100vh;
+			overflow: visible !important;
+		}
 
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-K5S702QYV4"></script>
-		<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+		/* Reset content positioning to flow naturally in the document */
+		.spotlight .content {
+			position: relative !important;
+			height: auto !important;
+			width: 100% !important;
+			max-width: 100%;
+			top: auto !important;
+			bottom: auto !important;
+			left: auto !important;
+			right: auto !important;
+			transform: none !important;
+			opacity: 1 !important;
+		}
 
-		gtag('config', 'G-K5S702QYV4');
-		</script>
-	</head>
+		.spotlight .content .container {
+			padding: 4em 2em;
+			width: 100%;
+			max-width: 60em;
+			margin: 0 auto;
+		}
+
+		/* Restore side positioning logic using margins instead of absolute positioning */
+		@media screen and (min-width: 981px) {
+			.spotlight.left .content {
+				width: 45% !important;
+				margin-right: auto;
+				margin-left: 0;
+			}
+			.spotlight.right .content {
+				width: 45% !important;
+				margin-left: auto;
+				margin-right: 0;
+			}
+			/* Keep 'bottom' style as full width */
+			.spotlight.bottom .content {
+				width: 100% !important;
+			}
+		}
+
+		/* Ensure smooth scrolling across the page */
+		html {
+			scroll-behavior: smooth;
+		}
+
+		/* Privacy Modal Styles */
+		#privacy-modal {
+			display: none;
+			position: fixed;
+			z-index: 10000;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.85); /* Darker background */
+			align-items: center;
+			justify-content: center;
+			backdrop-filter: blur(8px); /* Stronger blur */
+		}
+
+		#privacy-content {
+			background-color: #1c1d26; /* Match dark theme */
+			padding: 3em;
+			border-radius: 15px;
+			text-align: center;
+			border: 1px solid rgba(111, 195, 223, 0.3); /* Blue accent border */
+			box-shadow: 0 0 30px rgba(111, 195, 223, 0.2);
+			max-width: 90%;
+			width: 400px;
+			animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		}
+
+		#privacy-icon {
+			font-size: 5em;
+			margin-bottom: 0.5em;
+			display: inline-block;
+			background: -webkit-linear-gradient(#e44c65, #fb8396);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			animation: shieldPulse 2s infinite ease-in-out;
+		}
+
+		@keyframes modalPop {
+			from { opacity: 0; transform: scale(0.8) translateY(20px); }
+			to { opacity: 1; transform: scale(1) translateY(0); }
+		}
+
+		@keyframes shieldPulse {
+			0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(228, 76, 101, 0)); }
+			50% { transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(228, 76, 101, 0.5)); }
+			100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(228, 76, 101, 0)); }
+		}
+
+		/* Ultra-modern Skills Section */
+		.skills-category-card {
+			background: rgba(255, 255, 255, 0.05);
+			backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 15px;
+			padding: 2em;
+			transition: all 0.4s ease;
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.skills-category-card:hover {
+			transform: translateY(-10px);
+			border-color: rgba(111, 195, 223, 0.5);
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 
+						inset 0 0 20px rgba(111, 195, 223, 0.1);
+		}
+
+		.skills-category-card h3 {
+			font-size: 1.3em;
+			margin-bottom: 1.5em;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.5em;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			color: #ffffff;
+			text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+		}
+
+		.skills-category-icon {
+			font-size: 1.5em;
+			background: -webkit-linear-gradient(#667eea, #764ba2);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+		.skill-pill {
+			background: rgba(0, 0, 0, 0.3);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			padding: 0.6em 1.2em;
+			border-radius: 50px;
+			font-size: 0.9em;
+			color: rgba(255, 255, 255, 0.9);
+			display: inline-flex;
+			align-items: center;
+			margin: 0.4em;
+			transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			cursor: default;
+			position: relative;
+			z-index: 1;
+		}
+
+		.skill-pill:hover {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			border-color: transparent;
+			transform: scale(1.1);
+			box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+			color: #fff;
+			text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+		}
+		
+		.skill-pill i {
+			margin-right: 0.5em;
+			opacity: 0.7;
+		}
+
+		.skills-master-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2em;
+			margin-top: 2em;
+		}
+	</style>
 </head>
 <body class="is-preload landing">
     <div id="page-wrapper">
@@ -36,9 +260,9 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#experience1">Experience - SFE</a></li>
-					<li><a href="#experience2">Experience - Tech Roles</a></li>
-					<li><a href="#awards">Rewards and Achievements</a></li>
-					<li><a href="#skills">Technical Skills</a></li>
+					<li><a href="#experience2">Tech Roles</a></li>
+					<li><a href="#awards">Awards</a></li>
+					<li><a href="#skills">Skills</a></li>
                     <li><a href="#leadership">Leadership</a></li>
                     <li><a href="#projects">Projects</a></li>
                 </ul>
@@ -50,83 +274,301 @@
             <div class="content">
                 <header>
 					<h2>Hi, I'm Yaolei Andy Bian</h2>
-					<p>Welcome to my portfolio! Dive into my journey as a Software Engineer Intern,<br />
-					where I create innovative solutions and impactful applications.</p>
+					<p>Software Engineer | Full-Stack Developer | AI Engineer</p>
+					<p style="margin-top: 1em; font-size: 1em; line-height: 1.8em;">
+						Welcome to my portfolio! I'm passionate about building innovative solutions<br />
+						and creating impactful applications that make a difference.
+					</p>
 				</header>
-                <span class="image"><img src="images/pic01.jpg" alt="" /></span>
+                <span class="image"><img src="images/pic01.jpg" alt="Yaolei Andy Bian" /></span>
             </div>
             <a href="#education" class="goto-next scrolly">Next</a>
         </section>
 
         <!-- Education -->
         <section id="education" class="spotlight style1 bottom">
-            <span class="image fit main"><img src="images/pic02.jpg" alt="" /></span>
+            <span class="image fit main"><img src="images/pic02.jpg" alt="University of Arizona" /></span>
             <div class="content">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <header>
                                 <h2>Education</h2>
-                                <p>Bachelor’s of Science in Software Engineering, Minor in Computer Science<br>University of Arizona, Tucson, AZ<br>Aug. 2022 – May 2026</p>
                             </header>
+                            <div style="margin-top: 2em; max-width: 900px; margin-left: auto; margin-right: auto;">
+                                <h3 style="color: #6fc3df; margin-bottom: 0.8em; font-size: 1.8em;">Bachelor of Science in Software Engineering</h3>
+                                <p style="font-size: 1.3em; margin-bottom: 0.5em;"><strong>Minor:</strong> Electrical Computer Engineering</p>
+                                <p style="font-style: italic; color: #8d82c4; font-size: 1.2em; margin-bottom: 0.3em;">University of Arizona, Tucson, AZ</p>
+                                <p style="color: rgba(255, 255, 255, 0.7); font-size: 1.1em; margin-bottom: 2em;">Aug 2022 – May 2026</p>
+                                
+                                <div style="margin-top: 3em;">
+                                    <h4 style="color: #6fc3df; font-size: 1.4em; margin-bottom: 1.5em; text-align: center;">Academic Highlights</h4>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2em;">
+                                        <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%); border: 2px solid rgba(111, 195, 223, 0.3); border-radius: 15px; padding: 2em; text-align: center; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(111, 195, 223, 0.4)'; this.style.borderColor='rgba(111, 195, 223, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.2)'; this.style.borderColor='rgba(111, 195, 223, 0.3)';">
+                                            <div style="width: 60px; height: 60px; margin: 0 auto 1em; background: linear-gradient(135deg, #6fc3df 0%, #667eea 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8em; font-weight: bold; color: white;">★</div>
+                                            <p style="font-size: 1.2em; color: #6fc3df; margin-bottom: 0.5em; font-weight: bold;">Dean's List</p>
+                                            <p style="font-size: 0.95em; color: rgba(255, 255, 255, 0.8);">Recognized for academic excellence</p>
+                                        </div>
+                                        <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%); border: 2px solid rgba(111, 195, 223, 0.3); border-radius: 15px; padding: 2em; text-align: center; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(111, 195, 223, 0.4)'; this.style.borderColor='rgba(111, 195, 223, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.2)'; this.style.borderColor='rgba(111, 195, 223, 0.3)';">
+                                            <div style="width: 60px; height: 60px; margin: 0 auto 1em; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8em; font-weight: bold; color: white;">◆</div>
+                                            <p style="font-size: 1.2em; color: #6fc3df; margin-bottom: 0.5em; font-weight: bold;">Core Focus</p>
+                                            <p style="font-size: 0.95em; color: rgba(255, 255, 255, 0.8);">Software Development, Data Engineering, AI/ML, Cloud Computing</p>
+                                        </div>
+                                        <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%); border: 2px solid rgba(111, 195, 223, 0.3); border-radius: 15px; padding: 2em; text-align: center; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(111, 195, 223, 0.4)'; this.style.borderColor='rgba(111, 195, 223, 0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.2)'; this.style.borderColor='rgba(111, 195, 223, 0.3)';">
+                                            <div style="width: 60px; height: 60px; margin: 0 auto 1em; background: linear-gradient(135deg, #8d82c4 0%, #6fc3df 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8em; font-weight: bold; color: white;">▲</div>
+                                            <p style="font-size: 1.2em; color: #6fc3df; margin-bottom: 0.5em; font-weight: bold;">Expected Graduation</p>
+                                            <p style="font-size: 0.95em; color: rgba(255, 255, 255, 0.8);">May 2026</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div style="margin-top: 3em;">
+                                    <h4 style="color: #6fc3df; font-size: 1.4em; margin-bottom: 1.5em;">Relevant Coursework</h4>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 1em; justify-content: center;">
+                                        <span style="background: rgba(111, 195, 223, 0.2); border: 1px solid #6fc3df; padding: 0.6em 1.2em; border-radius: 25px; font-size: 1em;">Data Engineering</span>
+                                        <span style="background: rgba(111, 195, 223, 0.2); border: 1px solid #6fc3df; padding: 0.6em 1.2em; border-radius: 25px; font-size: 1em;">Database Systems</span>
+                                        <span style="background: rgba(111, 195, 223, 0.2); border: 1px solid #6fc3df; padding: 0.6em 1.2em; border-radius: 25px; font-size: 1em;">Microprocessor & FPGA</span>
+                                        <span style="background: rgba(111, 195, 223, 0.2); border: 1px solid #6fc3df; padding: 0.6em 1.2em; border-radius: 25px; font-size: 1em;">Software DevOps</span>
+                                        <span style="background: rgba(111, 195, 223, 0.2); border: 1px solid #6fc3df; padding: 0.6em 1.2em; border-radius: 25px; font-size: 1em;">Web Development</span>
+                                        <span style="background: rgba(111, 195, 223, 0.2); border: 1px solid #6fc3df; padding: 0.6em 1.2em; border-radius: 25px; font-size: 1em;">Machine Learning</span>
+                                        <span style="background: rgba(111, 195, 223, 0.2); border: 1px solid #6fc3df; padding: 0.6em 1.2em; border-radius: 25px; font-size: 1em;">Computer Architecture</span>
+                                        <span style="background: rgba(111, 195, 223, 0.2); border: 1px solid #6fc3df; padding: 0.6em 1.2em; border-radius: 25px; font-size: 1em;">Cloud Computing</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <a href="#experience" class="goto-next scrolly">Next</a>
+            <a href="#skills" class="goto-next scrolly">Next</a>
         </section>
 
-     <!-- Experience - Software Engineering -->
-		<section id="experience1" class="spotlight style2 right">
-			<span class="image fit main"><img src="images/pic03.jpg" alt="Software Engineering" /></span>
-			<div class="content">
-				<header>
-					<h2>Experience</h2>
+		<!-- Technical Skills -->
+		<section id="skills" class="wrapper style2 special fade-up">
+			<div class="container">
+				<header class="major">
+					<h2>Technical Expertise</h2>
+                    <p>A comprehensive toolkit for building scalable, intelligent systems.</p>
 				</header>
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
+				
+                <div class="skills-master-grid">
+                    
+                    <!-- 1. Generative AI & LLM Systems -->
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-brain skills-category-icon"></i> Generative AI & LLMs</h3>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-cubes"></i>None API AI Integration</span>
+                            <span class="skill-pill"><i class="fas fa-robot"></i>Multi-Agent Systems</span>
+                            <span class="skill-pill"><i class="fas fa-network-wired"></i>Advanced RAG Pipelines</span>
+                            <span class="skill-pill"><i class="fas fa-microchip"></i>LLM tuning</span>
+                            <span class="skill-pill"><i class="fas fa-vector-square"></i>Vector Database Ops (Pinecone)</span>
+                            <span class="skill-pill"><i class="fas fa-brain"></i>PyTorch / TensorFlow</span>
+                        </div>
+                    </div>
 
-                            <p><strong>Incoming Software Engineer II </strong><br> Fortune 500 (Internship)<br><br><br>
+                    <!-- 2. Distributed Data Engineering -->
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-database skills-category-icon"></i> Distributed Data Systems</h3>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-wind"></i>Apache Airflow (Orchestration)</span>
+                            <span class="skill-pill"><i class="fas fa-fire"></i>Spark / Databricks Streaming</span>
+                            <span class="skill-pill"><i class="fas fa-stream"></i>Kafka Event Architectures</span>
+                            <span class="skill-pill"><i class="fas fa-layer-group"></i>Data Lakehouse (Snowflake)</span>
+                            <span class="skill-pill"><i class="fas fa-code"></i>dbt (Data Build Tool)</span>
+                            <span class="skill-pill"><i class="fas fa-project-diagram"></i>High-Volume ETL/ELT</span>
+                        </div>
+                    </div>
 
-                            <p><strong>Product Manager </strong><br> Develop For Good (Internship)<br> Remote<br>Oct 2024 - Feb 2025<br>
+                    <!-- 3. Cloud-Native Infrastructure -->
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-cloud skills-category-icon"></i> Cloud-Native Arch</h3>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fab fa-aws"></i>AWS Solutions Architect</span>
+                            <span class="skill-pill"><i class="fas fa-dharmachakra"></i>Kubernetes (K8s) Management</span>
+                            <span class="skill-pill"><i class="fas fa-code-branch"></i> Helm Charts</span>
+                            <span class="skill-pill"><i class="fas fa-server"></i>Serverless & Microservices</span>
+                            <span class="skill-pill"><i class="fab fa-docker"></i>Container Orchestration</span>
+                            <span class="skill-pill"><i class="fab fa-google"></i>Multi-Cloud (GCP/Azure)</span>
+                        </div>
+                    </div>
 
-							<p><strong>Software Engineer</strong><br> Avex ATP (Internship), Tucson, AZ<br>Jan 2024 – May 2024<br>
+                    <!-- 4. Backend & Systems Architecture -->
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-cogs skills-category-icon"></i> Backend Architecture</h3>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-sitemap"></i>Distributed Systems Design</span>
+                            <span class="skill-pill"><i class="fas fa-exchange-alt"></i>GraphQL & gRPC APIs</span>
+                            <span class="skill-pill"><i class="fas fa-bolt"></i>Redis Caching Strategies</span>
+                            <span class="skill-pill"><i class="fab fa-python"></i>Advanced Python / AsyncIO</span>
+                            <span class="skill-pill"><i class="fas fa-shield-alt"></i>OAuth2 / OIDC Security</span>
+                            <span class="skill-pill"><i class="fas fa-database"></i>SQL Optimization & Sharding</span>
+                        </div>
+                    </div>
 
-							<p><strong>Software Engineer</strong><br> Headstarter AI (Fellowship), Remote<br>July 2024 – Sep 2024<br>
+                    <!-- 5. Modern Frontend Engineering -->
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-laptop-code skills-category-icon"></i> Modern Frontend</h3>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fab fa-react"></i>React & Next.js (SSR/ISR)</span>
+                            <span class="skill-pill"><i class="fab fa-js"></i>TypeScript (Strict Mode)</span>
+                            <span class="skill-pill"><i class="fas fa-sync-alt"></i>Scalable State</span>
+                            <span class="skill-pill"><i class="fas fa-tachometer-alt"></i>Performance Optimization</span>
+                            <span class="skill-pill"><i class="fas fa-satellite-dish"></i>WebSockets / Real-time</span>
+                            <span class="skill-pill"><i class="fab fa-figma"></i>Component Library Design</span>
+                        </div>
+                    </div>
 
-                            <p><strong>Software Engineer</strong><br> UArizona Institution of computation and Enable Insight (Internship), Tucson, AZ<br>Jun 2024 – Aug 2024<br>
-                        
-	
-						
-						</div>
-					</div>
-				</div>
+                    <!-- 6. DevSecOps & SRE -->
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-infinity skills-category-icon"></i> DevSecOps & SRE</h3>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-rocket"></i>CI/CD Pipelines (GitHub Actions)</span>
+                            <span class="skill-pill"><i class="fas fa-chart-area"></i>Observability monitoring</span>
+                            <span class="skill-pill"><i class="fas fa-vial"></i>E2E Testing</span>
+                            <span class="skill-pill"><i class="fas fa-lock"></i>Cloud Security Posture</span>
+                            <span class="skill-pill"><i class="fab fa-linux"></i>Linux Kernel & Shell Scripting</span>
+                            <span class="skill-pill"><i class="fas fa-code-branch"></i>GitOps Methodology</span>
+                        </div>
+                    </div>
+
+                </div>
 			</div>
-			<a href="#experience-technical" class="goto-next scrolly">Next</a>
+			<a href="#experience1" class="goto-next scrolly">Next</a>
 		</section>
 
+     <!-- Experience - Software Engineering -->
+		<section id="experience1" class="wrapper style2 special fade-up">
+			<div class="container">
+				<header class="major">
+					<h2>Software Engineering Experience</h2>
+				</header>
+				<div class="skills-master-grid">
 
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-briefcase skills-category-icon"></i> Software Engineer</h3>
+                        <p><strong>Walmart Global Tech</strong></p>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-calendar-alt"></i>2026</span>
+                            <span class="skill-pill"><i class="fas fa-clock"></i>Full-time</span>
+                        </div>
+                    </div>
 
-<!-- Experience - Technical Support -->
-		<section id="experience2" class="spotlight style3 left">
-			<span class="image fit main bottom"><img src="images/pic04.jpg" alt="Technical Support" /></span>
-			<div class="content">
-				<div class="container">
-					<div class="row">
-						<div class="col-12">
-							<p><strong>IT Assistant</strong><br>University of Arizona UITS, Tucson, AZ<br>Jun 2023 – Present</p>
-                            <p><strong>AI consultant</strong><br> Outlier (Scale.AI), Remote<br>Jan 2024 – July 2024<br>
-							<p><strong>Technical Consultant</strong><br>StarTalk, Tucson, AZ<br>Jun 2024 - Jul 2024</p>
-							<p><strong>Business Analyst Intern & Undergraduate Teaching Assistant</strong><br>University of Arizona, Tucson, AZ<br>Jul 2023 – Jan 2024</p>
-							<p><strong>UREP Engineering Intern</strong><br>ASTEROIDS Laboratory, Tucson, AZ<br>Jun 2023 – Aug 2023</p>
-							<p><strong>Semiconductor Process Intern</strong><br>Leonardo DRS, Tucson, AZ<br>Jun 2022 – Apr 2023</p>
-							<p><strong>More experiences available on <a href="https://www.linkedin.com/in/andy-yaolei-bian-1016b7186" target="_blank">LinkedIn</a></strong></p>
-						</div>
-					</div>
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-laptop-code skills-category-icon"></i> Software Engineer Intern</h3>
+                        <p><strong>Walmart Global Tech</strong></p>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-calendar-alt"></i>May 2025 - Aug 2025</span>
+                            <span class="skill-pill"><i class="fas fa-user-graduate"></i>Internship</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-tasks skills-category-icon"></i> Product Manager</h3>
+                        <p><strong>Develop For Good</strong></p>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-calendar-alt"></i>Oct 2024 - Feb 2025</span>
+                            <span class="skill-pill"><i class="fas fa-globe"></i>Remote</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-code skills-category-icon"></i> Software Engineer</h3>
+                        <p><strong>UArizona Inst. of Computation</strong></p>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-calendar-alt"></i>Jun 2024 – Aug 2024</span>
+                            <span class="skill-pill"><i class="fas fa-map-marker-alt"></i>Tucson, AZ</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-rocket skills-category-icon"></i> Software Engineer</h3>
+                        <p><strong>Headstarter AI (Fellowship)</strong></p>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-calendar-alt"></i>July 2024 – Sep 2024</span>
+                            <span class="skill-pill"><i class="fas fa-globe"></i>Remote</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-terminal skills-category-icon"></i> Software Engineer</h3>
+                        <p><strong>Avex ATP</strong></p>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-calendar-alt"></i>Jan 2024 – May 2024</span>
+                            <span class="skill-pill"><i class="fas fa-map-marker-alt"></i>Tucson, AZ</span>
+                        </div>
+                    </div>
+
 				</div>
 			</div>
-			<a href="#leadership-awards" class="goto-next scrolly">Next</a>
+			<a href="#experience2" class="goto-next scrolly">Next</a>
+		</section>
+
+<!-- Experience - Technical Roles -->
+		<section id="experience2" class="wrapper style2 special fade-up">
+			<div class="container">
+				<header class="major">
+					<h2>Additional Technical Experience</h2>
+				</header>
+				<div class="skills-master-grid">
+
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-server skills-category-icon"></i> IT Assistant</h3>
+                        <p><strong>University of Arizona UITS</strong></p>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-calendar-alt"></i>Jun 2023 – Present</span>
+                            <span class="skill-pill"><i class="fas fa-map-marker-alt"></i>Tucson, AZ</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-brain skills-category-icon"></i> AI Consultant</h3>
+                        <p><strong>Outlier (Scale.AI)</strong></p>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-calendar-alt"></i>Jan 2024 – July 2024</span>
+                            <span class="skill-pill"><i class="fas fa-globe"></i>Remote</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-chalkboard-teacher skills-category-icon"></i> Technical Consultant</h3>
+                        <p><strong>StarTalk</strong></p>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-calendar-alt"></i>Jun 2024 - Jul 2024</span>
+                            <span class="skill-pill"><i class="fas fa-map-marker-alt"></i>Tucson, AZ</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-chart-line skills-category-icon"></i> Business Analyst Intern</h3>
+                        <p><strong>University of Arizona</strong></p>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-calendar-alt"></i>Jul 2023 – Jan 2024</span>
+                            <span class="skill-pill"><i class="fas fa-map-marker-alt"></i>Tucson, AZ</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-microchip skills-category-icon"></i> UREP Engineering Intern</h3>
+                        <p><strong>UA ASTEROIDS Laboratory</strong></p>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-calendar-alt"></i>Jun 2023 – Aug 2023</span>
+                            <span class="skill-pill"><i class="fas fa-map-marker-alt"></i>Tucson, AZ</span>
+                        </div>
+                    </div>
+
+                    <div class="skills-category-card">
+                        <h3><i class="fas fa-industry skills-category-icon"></i> Process Intern</h3>
+                        <p><strong>Leonardo DRS</strong></p>
+                        <div class="skills-grid">
+                            <span class="skill-pill"><i class="fas fa-calendar-alt"></i>Jun 2022 – Apr 2023</span>
+                            <span class="skill-pill"><i class="fas fa-map-marker-alt"></i>Tucson, AZ</span>
+                        </div>
+                    </div>
+
+                </div>
+                <p style="margin-top: 2em; text-align: center;"><strong>View complete experience on <a href="https://www.linkedin.com/in/andybian55555/" target="_blank" style="color: #6fc3df;">LinkedIn</a></strong></p>
+			</div>
+			<a href="#awards" class="goto-next scrolly">Next</a>
 		</section>
 
 
@@ -135,25 +577,56 @@
 
 						
 <!-- Awards -->
-<section id="awards" class="spotlight style4 right">
-    <span class="image fit main bottom"><img src="images/pic05.jpg" alt="Awards" /></span>
-    <div class="content">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <header>
-                        <h2>Awards</h2>
-                    </header>
-                    <p><strong>Dean List</strong><br>Issued by the University of Arizona · Aug 2023</p>
-                    <p><strong>Honor Diploma</strong><br>Issued by Sonoran Science Academy Tucson Admin Office · May 2022</p>
-                    <p><strong>Congressional Award Gold Certificate</strong><br>Issued by The United States Congress · Aug 2021</p>
-                    <p><strong>Congressional Award Silver Medal</strong><br>Issued by The United States Congress · Aug 2021</p>
-                    <p><strong>Salutatorian Medal</strong><br>Issued by Sonoran Science Academy Admin Office · Aug 2021</p>
+<section id="awards" class="wrapper style2 special fade-up">
+    <div class="container">
+        <header class="major">
+            <h2>Awards & Recognition</h2>
+        </header>
+        <div class="skills-master-grid">
+
+            <div class="skills-category-card">
+                <h3><i class="fas fa-star skills-category-icon"></i> Dean's List</h3>
+                <p><strong>University of Arizona</strong></p>
+                <div class="skills-grid">
+                    <span class="skill-pill"><i class="fas fa-calendar-alt"></i>Aug 2023</span>
                 </div>
             </div>
+
+            <div class="skills-category-card">
+                <h3><i class="fas fa-medal skills-category-icon"></i> Congressional Award Gold</h3>
+                <p><strong>The United States Congress</strong></p>
+                <div class="skills-grid">
+                    <span class="skill-pill"><i class="fas fa-calendar-alt"></i>Aug 2021</span>
+                </div>
+            </div>
+
+            <div class="skills-category-card">
+                <h3><i class="fas fa-medal skills-category-icon"></i> Congressional Award Silver</h3>
+                <p><strong>The United States Congress</strong></p>
+                <div class="skills-grid">
+                    <span class="skill-pill"><i class="fas fa-calendar-alt"></i>Aug 2021</span>
+                </div>
+            </div>
+
+            <div class="skills-category-card">
+                <h3><i class="fas fa-award skills-category-icon"></i> Salutatorian Medal</h3>
+                <p><strong>Sonoran Science Academy</strong></p>
+                <div class="skills-grid">
+                    <span class="skill-pill"><i class="fas fa-calendar-alt"></i>Aug 2021</span>
+                </div>
+            </div>
+
+            <div class="skills-category-card">
+                <h3><i class="fas fa-certificate skills-category-icon"></i> Honor Diploma</h3>
+                <p><strong>Sonoran Science Academy</strong></p>
+                <div class="skills-grid">
+                    <span class="skill-pill"><i class="fas fa-calendar-alt"></i>May 2022</span>
+                </div>
+            </div>
+
         </div>
     </div>
-    <a href="#projects" class="goto-next scrolly">Next</a>
+    <a href="#leadership" class="goto-next scrolly">Next</a>
 </section>
 
 
@@ -161,38 +634,33 @@
 
 
 
-		<!-- Technical Skills -->
-		<section id="skills" class="wrapper style2 special fade-up">
-			<div class="container">
-				<header class="major">
-					<h2>Technical Skills</h2>
-				</header>
-				<div class="box alt">
-					<div class="row gtr-uniform">
-						<section class="col-12">
-							<p>Java, Python, PHP, Web Application/Development, AWS S3, C/C++, MySQL, JavaScript, Joomla, HTML/CSS, VS Code, PyCharm, Software Troubleshooting, Trellis System, Information Technology, Data Modeling, Technical Support, Internet Protocol Suite (TCP/IP), Salesforce, SDLC, Large Language Models (LLM), Chatbot Development, Artificial Intelligence (AI), Web Services API, .NET Framework, Node.js, React.js, Searching Tool, Web Development, Web Applications, Amazon Web Services (AWS), Azure DevOps Server, Machine Learning, Databases, JSON, Cascading Style Sheets (CSS), HTML Scripting, GitHub, Git, Microsoft SQL Server, AWS Server, Full-Stack Development</p>
-						</section>
-					</div>
-				</div>
-			</div>
-			<a href="#projects" class="goto-next scrolly">Next</a>
-		</section>
-
 <!-- Leadership -->
-<section id="leadership" class="spotlight style5 left">
-    <span class="image fit main bottom"><img src="images/pic06.jpg" alt="Leadership" /></span>
-    <div class="content">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <header>
-                        <h2>Leadership</h2>
-                    </header>
-                    <p><strong>Captain Robotics Developer</strong><br>CRUSH Robotics Programming Team</p>
-                    <p><strong>Vice President Of Honor Society</strong><br>Sonoran Science Academy - Tucson</p>
-                    <p><strong>Assistant Volleyball/Basketball Coach</strong></p>
+<section id="leadership" class="wrapper style2 special fade-up">
+    <div class="container">
+        <header class="major">
+            <h2>Leadership & Involvement</h2>
+        </header>
+
+        <div class="skills-master-grid">
+            
+            <div class="skills-category-card">
+                <h3><i class="fas fa-robot skills-category-icon"></i> Captain Robotics Developer</h3>
+                <p><strong>CRUSH Robotics Programming Team</strong></p>
+                <div class="skills-grid">
+                    <span class="skill-pill"><i class="fas fa-users"></i>Team Leadership</span>
+                    <span class="skill-pill"><i class="fas fa-code"></i>Development</span>
                 </div>
             </div>
+
+            <div class="skills-category-card">
+                <h3><i class="fas fa-basketball-ball skills-category-icon"></i> Assistant Coach</h3>
+                <p><strong>Community Sports Programs</strong></p>
+                <div class="skills-grid">
+                    <span class="skill-pill"><i class="fas fa-users"></i>Volleyball / Basketball</span>
+                    <span class="skill-pill"><i class="fas fa-hands-helping"></i>Community Service</span>
+                </div>
+            </div>
+
         </div>
     </div>
     <a href="#projects" class="goto-next scrolly">Next</a>
@@ -200,20 +668,50 @@
 
 <!-- Projects -->
 <section id="projects" class="spotlight style6 right">
-    <span class="image fit main bottom"><img src="images/pic07.jpg" alt="Projects" /></span>
+    <span class="image fit main bottom"><img src="images/pic07.jpg" alt="Featured Projects" /></span>
     <div class="content">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <header>
-                        <h2>Projects</h2>
+                        <h2>Featured Projects</h2>
                     </header>
-                    <p><strong>Learning Vault React Project</strong><br>Jun 2024 - Present</p>
-                    <p><strong>CustomGPT Web API Application: ChrisAI ChatBot</strong><br>May 2024 - Present</p>
-                    <p><strong>Pantry Tracker Firebase Project</strong><br>July 2024 - July 2024</p>
-                    <p><strong>UNO Game</strong><br>Apr 2023 - May 2023</p>
-                    <p><strong>Alien Invasion Game</strong><br>Sep 2022 - Dec 2022</p>
-                    <p><strong>More Projects GitHub Links available on <a href="https://github.com/Sweatpotatos" target="_blank">GitHub</a></strong></p>
+                    <div class="project-item">
+                        <div class="experience-title">IoT Health Monitor</div>
+                        <div class="experience-company">AWS & IoT tracking for heart rate/oxygen, featuring user journey monitoring and AI-driven alerts</div>
+                        <div class="experience-date">2025</div>
+                    </div>
+                    <div class="project-item">
+                        <div class="experience-title">Smart Budget Calculator</div>
+                        <div class="experience-company">React.js financial tracker for stocks and expenses with integrated AI analytics</div>
+                        <div class="experience-date">2025</div>
+                    </div>
+                    <div class="project-item">
+                        <div class="experience-title">Learning Vault</div>
+                        <div class="experience-company">React-based educational platform for knowledge management</div>
+                        <div class="experience-date">Jun 2024 - Present</div>
+                    </div>
+                    <div class="project-item">
+                        <div class="experience-title">ChrisAI ChatBot</div>
+                        <div class="experience-company">CustomGPT Web API Application with advanced AI capabilities</div>
+                        <div class="experience-date">May 2024 - Present</div>
+                    </div>
+                    <div class="project-item">
+                        <div class="experience-title">Pantry Tracker</div>
+                        <div class="experience-company">Firebase-powered inventory management system</div>
+                        <div class="experience-date">July 2024</div>
+                    </div>
+                    <div class="project-item">
+                        <div class="experience-title">UNO Game</div>
+                        <div class="experience-company">Interactive card game implementation with AI opponents</div>
+                        <div class="experience-date">Apr 2023 - May 2023</div>
+                    </div>
+                    <div class="project-item">
+                        <div class="experience-title">Alien Invasion Game</div>
+                        <div class="experience-company">Python-based arcade game with progressive difficulty</div>
+                        <div class="experience-date">Sep 2022 - Dec 2022</div>
+                    </div>
+                    <p style="margin-top: 2em; text-align: center;"><strong>Explore more projects on <a href="https://github.com/Sweatpotatos" target="_blank" style="color: #6fc3df;">GitHub</a></strong></p>
                 </div>
             </div>
         </div>
@@ -228,11 +726,16 @@
         <!-- Footer -->
         <footer id="footer">
             <ul class="icons">
-                <li><a href="https://discord.gg/baG69bPC" class="icon brands alt fa-discord" target="_blank"><span class="label">Discord</span></a></li>
-                <li><a href="https://www.linkedin.com/in/andy-yaolei-bian-1016b7186" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-                <li><a href="https://www.instagram.com/andyyaolb/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="https://github.com/Sweatpotatos" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-                <li><a href="mailto:yaoleib@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+                <!-- Private Links (Popup) -->
+                <li><a href="#" onclick="showPrivacyMessage(event)" class="icon brands alt fa-discord"><span class="label">Discord</span></a></li>
+                
+                <!-- LinkedIn (Public) -->
+                <li><a href="https://www.linkedin.com/in/andybian55555/" class="icon brands alt fa-linkedin-in" target="_blank"><span class="label">LinkedIn</span></a></li>
+                
+                <!-- Private Links (Popup) -->
+                <li><a href="#" onclick="showPrivacyMessage(event)" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" onclick="showPrivacyMessage(event)" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                <li><a href="#" onclick="showPrivacyMessage(event)" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
             </ul>
             <ul class="copyright">
                 <li>&copy; Yaolei Andy Bian. All rights reserved.</li>
@@ -240,6 +743,37 @@
         </footer>
 
     </div>
+
+    <!-- Privacy Modal HTML -->
+    <div id="privacy-modal" onclick="closePrivacyModal()" style="display: none;">
+        <div id="privacy-content" onclick="event.stopPropagation()">
+            <div id="privacy-icon">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h3 style="color: #e44c65; margin-bottom: 0.5em;">Restricted Access</h3>
+            <p style="font-size: 1.1em; line-height: 1.5; color: rgba(255,255,255,0.9);">
+                For personal privacy, this contact information is not shared publicly.
+            </p>
+            <p style="font-size: 0.9em; color: rgba(255,255,255,0.6); margin-bottom: 2em;">
+                Please connect with me with LinkedIn Icon.
+            </p>
+            <button onclick="closePrivacyModal()" class="button primary small" style="box-shadow: none;">Close</button>
+        </div>
+    </div>
+
+    <!-- Privacy Modal Script -->
+    <script>
+        function showPrivacyMessage(event) {
+            event.preventDefault();
+            var modal = document.getElementById('privacy-modal');
+            modal.style.display = 'flex';
+        }
+
+        function closePrivacyModal() {
+            var modal = document.getElementById('privacy-modal');
+            modal.style.display = 'none';
+        }
+    </script>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
